@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en-US">   <head>
+    <!-- # block head (placeholder in theme.html) -->
+        <!-- # block head (content inherited from layout.html) -->
+    <title>
+      TellStick_conf     – Telldus Technologies AB
+
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script>
+        if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+        </script><![endif]-->
+
+    <link rel="search"  href="/search" />
+    <link rel="help"  href="/wiki/TracGuide" />
+    <link rel="alternate"  href="/wiki/TellStick_conf?format=txt" title="Plain Text" type="text/x-trac-wiki" />
+    <link rel="start"  href="/wiki" />
+    <link rel="stylesheet"  href="/chrome/common/css/trac.css" type="text/css" />
+    <link rel="stylesheet"  href="/chrome/common/css/wiki.css" type="text/css" />
+    <link rel="icon"  href="/chrome/common/trac.ico" type="image/x-icon" />
+    <noscript>
+      <style>
+        .trac-noscript { display: none !important }
+      </style>     </noscript>
+    <link type="application/opensearchdescription+xml" rel="search"
+          href="/search/opensearch"
+          title="Search Telldus Technologies AB"/>
+    <script src="/chrome/common/js/jquery.js"></script>
+    <script src="/chrome/common/js/babel.js"></script>
+    <script src="/chrome/common/js/trac.js"></script>
+    <script src="/chrome/common/js/search.js"></script>
+    <script src="/chrome/common/js/folding.js"></script>
+    <script src="/chrome/common/js/wiki.js"></script>
+    <script>
+      jQuery(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        if ($.ui) { /* is jquery-ui added? */
+          $(".trac-datepicker:not([readonly])")
+            .prop("autocomplete", "off").datepicker();
+          // Input current date when today is pressed.
+          var _goToToday = $.datepicker._gotoToday;
+          $.datepicker._gotoToday = function(id) {
+            _goToToday.call(this, id);
+            this._selectDate(id)
+          };
+          $(".trac-datetimepicker:not([readonly])")
+            .prop("autocomplete", "off").datetimepicker();
+          $("#main").addClass("trac-nodatetimehint");
+        }
+        $(".trac-disable").disableSubmit(".trac-disable-determinant");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script>
+    <!--   # include 'site_head.html' (layout.html) -->
+    <!--   end of site_head.html -->
+    <!-- # endblock head (content inherited from layout.html) -->
+
+
+    <script>
+      jQuery(function($) {
+        wikiColumn($("#wikipage"));
+      });
+    </script>
+    <!-- # endblock head (placeholder in theme.html) -->
+  </head> 
+  <body>
+    <!-- # block body (content inherited from theme.html) -->
+    <!--   # include 'site_header.html' (theme.html) -->
+    <!--   end of site_header.html -->
+
+    <div id="banner">
+      <div id="header">
+        <a id="logo"
+           href="http://developer.telldus.com/">
+          <img  alt="" src="/chrome/site/logo.png" /></a>
+
+
+      </div>
+      <form id="search" action="/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18"
+                  value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+          <div id="metanav" class="nav">
+      <ul><li  class="first"><a href="/login">Login</a></li><li ><a href="/wiki/TracGuide">Help/Guide</a></li><li ><a href="/about">About Trac</a></li><li  class="last"><a href="/prefs">Preferences</a></li></ul>
+    </div>
+
+    </div>
+        <div id="mainnav" class="nav">
+      <ul><li  class="active first"><a href="/wiki/TitleIndex">Wiki</a></li><li  class="last"><a href="/search">Search</a></li></ul>
+    </div>
+
+
+    <div id="main"
+         >
+
+<div id="pagepath" class="noprint">
+<a class="pathentry first" title="View WikiStart"
+   href="/wiki">wiki:</a><a href="/wiki/TellStick_conf"
+     title="View TellStick_conf"
+     class="pathentry">TellStick_conf</a></div>      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li  class="first"><a href="/wiki/WikiStart">Start Page</a></li>
+          <li ><a href="/wiki/TitleIndex">Index</a></li>
+          <li  class="last"><a href="/wiki/TellStick_conf?action=history">History</a></li>
+        </ul>
+        <hr />
+      </div>
+
+      
+
+      
+
+      <!-- # block content (placeholder in theme.html) -->
+    <div id="content" class="wiki narrow">
+
+      <div class="wikipage searchable">
+        <div id="wikipage" class="trac-content borderless"><h1 class="section" id="tellstick.conf">tellstick.conf</h1>
+<p>
+The file <code>/etc/tellstick.conf</code> is the file where all devices used by TellStick is configured under Linux. Each device is configured in its own block with the parameter as name/value-pairs:
+</p>
+<pre class="wiki">device {
+  foo = "bar"
+}
+</pre><p>
+A device has at least four values and another block names <code>parameters</code>. A typical device can look like this:
+</p>
+<pre class="wiki">device {
+  id = 1
+  name = "Device 1"
+  protocol = "arctech"
+  model = "codeswitch"
+  parameters {
+    house = "A"
+    unit = "1"
+  }
+}
+</pre><dl class="wiki"><dt>id</dt><dd>
+This is a number and must be unique for each device.
+</dd></dl>
+<dl class="wiki"><dt>name</dt><dd>
+A name for easy identification of the device.
+</dd></dl>
+<dl class="wiki"><dt>protocol</dt><dd>
+This is the protocol the device uses. More on the different protocols later down.
+</dd></dl>
+<dl class="wiki"><dt>model</dt><dd>
+The parameter model is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus selflearning etc. If the devices are configured from TelldusCenter, this string will also be followed by a brand name, to allow for TelldusCenter to show the correct device brand. E.g., the string will be appended by: ":proove".
+</dd></dl>
+<dl class="wiki"><dt>parameters</dt><dd>
+This block depends on the protocol specified and is explained under each protocol.
+</dd></dl>
+<h2 class="section" id="Protocols">Protocols</h2>
+<h3 class="section" id="arctech">arctech</h3>
+<p>
+This protocol is used by a lot of devices. Some of them includes:
+</p>
+<ul><li>Byebye Standby
+</li><li>Chacon
+</li><li>CoCo Technologies
+</li><li>HomeEasy
+</li><li>Intertechno
+</li><li>Kappa
+</li><li>KlikAanKlikUit
+</li><li>Nexa
+</li><li>Proove
+</li><li>Rusta
+</li></ul><p>
+ 
+It has four different models:
+</p>
+<dl class="wiki"><dt>codeswitch</dt><dd>
+This types of devices uses dials on the receiver and remote to address them. The parameter <code>house</code> can be A to P and the <code>unit</code> 1 to 16. A typical parameters-block can look like:
+<pre class="wiki">parameters {
+  house = "A"
+  unit = "1"
+}
+</pre></dd></dl>
+<dl class="wiki"><dt>bell</dt><dd>
+This is bells of the codeswitch type. It only uses <code>house</code> and just as model <code>codeswitch</code> it is A to P. Example:
+<pre class="wiki">parameters {
+  house = "C"
+}
+</pre></dd></dl>
+<dl class="wiki"><dt>selflearning-switch</dt><dd>
+Requires TellStick batch &gt;= 5, TellStick Duo or TellStick Net<br />
+The newer ones where the code is learned by the remote/TellStick. Instead of housecodes A to P this is now 1 to 67108863. The unitcode is still 1 to 16. Example:
+<pre class="wiki">parameters {
+  house = "953934"
+  unit = "1"
+}
+</pre></dd></dl>
+<dl class="wiki"><dt>selflearning-dimmer</dt><dd>
+Requires TellStick batch &gt;= 5, TellStick Duo or TellStick Net<br />
+This is the same as <code>selflearning-switch</code> only these devices supports dimming-commands
+</dd></dl>
+<h3 class="section" id="brateck">brateck</h3>
+<p>
+Requires TellStick batch &gt;= 5, TellStick Duo (sending only) or TellStick Net (sending only)<br />
+This protocol is used by some projector screens. Example:
+</p>
+<ul><li>Roxcore
+</li></ul><p>
+The only parameter used in this protocol is <code>house</code>. The code is 8 tri-state values soldered into the pcb. The state can be "1", "0" or "-".
+A real world example can be found here: <a class="ext-link" href="http://www.telldus.se/forum/viewtopic.php?t=416"><span class="icon">​</span>http://www.telldus.se/forum/viewtopic.php?t=416</a>
+</p>
+<p>
+Example:
+</p>
+<pre class="wiki">parameters {
+  house = "101-1011"
+}
+</pre><h3 class="section" id="everflourish">everflourish</h3>
+<p>
+Requires TellStick batch &gt;= 5, TellStick Duo (sending only) or TellStick Net (sending only)<br />
+Added to telldus-core in 2.0.2.
+</p>
+<blockquote>
+<p>
+This is the selflearning protocol. For the codeswitch, take a look at <code>risingsun</code>.
+</p>
+</blockquote>
+<p>
+Brands:
+</p>
+<ul><li>Clas Ohlson
+</li><li>GAO
+</li></ul><p>
+The protocol uses <code>house</code> (0 to 16383) and <code>unit</code> (1 to 4). Example:
+</p>
+<pre class="wiki">parameters {
+  house = "117"
+  unit = "2"
+}
+</pre><h3 class="section" id="fuhaote">fuhaote</h3>
+<p>
+Requires TellStick batch &gt;= 5, TellStick Duo (sending only) or TellStick Net (sending only)<br />
+Added to telldus-core in 2.0.3.
+</p>
+<blockquote>
+<p>
+The configuration of these devices is very similar to <code>sartano</code> but they are not compatible with each other.
+</p>
+</blockquote>
+<p>
+Brands:
+</p>
+<ul><li>HQ
+</li><li>Rusta
+</li></ul><p>
+It uses the parameter <code>code</code> and consists of ten ones and zeros. Example:
+</p>
+<pre class="wiki">parameters {
+  code = "0010010100"
+}
+</pre><h3 class="section" id="hasta">hasta</h3>
+<p>
+TellStick Duo and TellStick Net can only send, not receive this protocol<br />
+Blinds<br />
+Uses <code>house</code> (1 to 65536) and <code>unit</code> (1 to 15). Example:
+</p>
+<pre class="wiki">parameters {
+  house = "1"
+  unit = "1"
+}
+</pre><h3 class="section" id="ikea">ikea</h3>
+<p>
+These receivers is not sold by Ikea anymore. There is both dimmers and non dimmers. One thing that differs this protocol against all other is that it can control up to ten receivers with just one device.
+It uses the parameters <code>system</code>, <code>units</code> and <code>fade</code>:
+</p>
+<blockquote>
+<p>
+<code>system</code> can be 1 to 16.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<code>units</code> is a comma-separeted list of receivers to address (1 to 10).
+</p>
+</blockquote>
+<blockquote>
+<p>
+<code>fade</code> is either <code>true</code> or <code>false</code> and tells a dimmer if is should fade smooth or instand between values.
+</p>
+</blockquote>
+<p>
+Example:
+</p>
+<pre class="wiki">parameters {
+  system = "5"
+  units = "2,6"
+  fade = "true"
+}
+</pre><h3 class="section" id="kangtai">kangtai</h3>
+<p>
+Only TellStick Net compatible. TellStick Net can only send, not receive this protocol<br />
+Known brands:
+</p>
+<ul><li>Clas Ohlson, 36-8836
+</li></ul><h3 class="section" id="risingsun">risingsun</h3>
+<p>
+TellStick Duo and TellStick Net can only send, not receive this protocol<br />
+Often small codeswitch receivers. Known brands:
+</p>
+<ul><li>Conrad (selflearning)
+</li><li>Clas Ohlson (codeswitch)
+</li><li>GAO (codeswitch)
+</li><li>Kjell &amp; Company (codeswitch)
+</li><li>Otio (selflearning)
+</li></ul><p>
+Two models, codeswitch or selflearning:
+</p>
+<dl class="wiki"><dt>codeswitch</dt><dd>
+Uses <code>house</code> (1 to 4) and <code>unit</code> (1 to 4). Example:
+<pre class="wiki">parameters {
+  house = "1"
+  unit = "1"
+}
+</pre></dd></dl>
+<dl class="wiki"><dt>selflearning</dt><dd>
+Uses <code>house</code> (1 to 33554432) and <code>unit</code> (1 to 16). Example:
+<pre class="wiki">parameters {
+  house = "5679"
+  unit = "1"
+}
+</pre></dd></dl>
+<h3 class="section" id="sartano">sartano</h3>
+<p>
+This is a very common protocol used by a lot of receivers. It has 10 dip-switches to configure the adress-code.
+Brands:
+</p>
+<ul><li>Sartano
+</li><li>Alpha
+</li><li>Brennenstuhl
+</li><li>Elro
+</li></ul><p>
+It uses the parameter <code>code</code> and consists of ten ones and zeros. Example:
+</p>
+<pre class="wiki">parameters {
+  code = "0010010100"
+}
+</pre><h3 class="section" id="silvanchip">silvanchip</h3>
+<p>
+TellStick Duo and TellStick Net can only send, not receive this protocol<br />
+Brands:
+</p>
+<ul><li>Ecosavers
+</li><li>KingPin - KP100
+</li></ul><p>
+Two models, ecosavers and kp100
+</p>
+<dl class="wiki"><dt>ecosavers</dt><dd>
+Uses <code>house</code> (1 to 1048575) and <code>unit</code> (1 to 4). Example:
+<pre class="wiki">parameters {
+  house = "1"
+  unit = "1"
+}
+</pre></dd></dl>
+<dl class="wiki"><dt>kp100</dt><dd>
+Uses <code>house</code> (1 to 1048575). Example:
+<pre class="wiki">parameters {
+ house = "1"
+}
+</pre></dd></dl>
+<h3 class="section" id="upm">upm</h3>
+<p>
+TellStick Duo and TellStick Net can only send, not receive this protocol<br />
+Uses parameters <code>house</code> (0 to 4095) and <code>code</code> (1 to 4). Each receiver can only remember one code at a time so using both a normal remote and TellStick is not possible. Example:
+</p>
+<pre class="wiki">parameters {
+  house = "123"
+  unit = "1"
+}
+</pre><h3 class="section" id="waveman">waveman</h3>
+<p>
+Very similar to arctech/codeswitch but the protocol differs just slightly. Brands:
+</p>
+<ul><li>Waveman
+</li></ul><p>
+Example:
+</p>
+<pre class="wiki">parameters {
+  house = "A"
+  unit = "1"
+}
+</pre><h3 class="section" id="x10">x10</h3>
+<p>
+Requires TellStick batch &gt;= 9, TellStick Duo or TellStick Net<br />
+</p>
+<p>
+This protocol uses the same configuration as arctech/codeswitch. Example:
+</p>
+<pre class="wiki">parameters {
+  house = "A"
+  unit = "1"
+}
+</pre><h3 class="section" id="yidong">yidong</h3>
+<p>
+Added to telldus-core in 2.0.4.
+ 
+Brands:
+</p>
+<ul><li>Goobay
+</li></ul><p>
+Uses <code>unit</code> (1 to 4). Example:
+</p>
+<pre class="wiki">parameters {
+  unit = "1"
+}
+</pre></div>
+        <div class="trac-modifiedby">
+          <span>
+            <a href="/wiki/TellStick_conf?action=diff&amp;version=37" title="Version 37 by Stefan Persson">Last modified</a>
+ <a class="timeline" href="/timeline?from=2014-11-13T15%3A59%3A19Z&amp;precision=second" title="See timeline at Nov 13, 2014, 3:59:19 PM">10 years ago</a>          </span>
+          <span class="trac-print">
+            Last modified on Nov 13, 2014, 3:59:19 PM
+          </span>
+        </div>
+      </div>
+
+
+
+
+
+<div class="trac-help">
+  <strong>Note:</strong>
+ See   <a href="/wiki/TracWiki">TracWiki</a>
+ for help on using the wiki.
+</div>
+    </div>
+        <!-- # block content (content inherited from layout.html) -->
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/wiki/TellStick_conf?format=txt"
+              class="">
+            Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    <!-- # endblock content (content inherited from layout.html) -->
+
+      <!-- # endblock content (placeholder in theme.html) -->
+    </div>
+
+    <div id="footer"><hr/>
+      <a id="tracpowered" href="https://trac.edgewall.org/"
+         ><img src="/chrome/common/trac_logo_mini.png" height="30"
+               width="107" alt="Trac Powered"/></a>
+      <p class="left">
+Powered by         <a href="/about"><strong>Trac 1.4</strong></a>
+        <br />
+ By         <a href="http://www.edgewall.org/">Edgewall Software</a>
+.      </p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <!--   # include 'site_footer.html' (theme.html) -->
+    <!--   end of site_footer.html -->
+    <!-- # endblock body (content inherited from theme.html) -->
+  </body> </html>
